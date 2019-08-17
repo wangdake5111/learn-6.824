@@ -33,21 +33,21 @@ type RegisterArgs struct {
 	Worker string // the worker's UNIX-domain socket name, i.e. its RPC address
 }
 
-// call() sends an RPC to the rpcname handler on server srv
-// with arguments args, waits for the reply, and leaves the
-// reply in reply. the reply argument should be the address
-// of a reply structure.
+//call() sends an RPC to the rpcname handler on server srv
+//with arguments args, waits for the reply, and leaves the
+//reply in reply. the reply argument should be the address
+//of a reply structure.
 //
-// call() returns true if the server responded, and false if call()
-// received no reply from the server. reply's contents are valid if
-// and only if call() returned true.
+//call() returns true if the server responded, and false if call()
+//received no reply from the server. reply's contents are valid if
+//and only if call() returned true.
 //
-// you should assume that call() will time out and return
-// false after a while if it doesn't get a reply from the server.
+//you should assume that call() will time out and return
+//false after a while if it doesn't get a reply from the server.
 //
-// please use call() to send all RPCs. please don't change this
-// function.
-//
+//please use call() to send all RPCs. please don't change this
+//function.
+
 func call(srv string, rpcname string,
 	args interface{}, reply interface{}) bool {
 	c, errx := rpc.Dial("unix", srv)
